@@ -1,3 +1,8 @@
+.root_card {
+  min-width: 320px;
+  width: 40vw;
+  min-height: 200px;
+}
 .root_card:hover {
   border: 1px solid lightblue;
 }
