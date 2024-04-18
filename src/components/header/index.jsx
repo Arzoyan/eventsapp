@@ -62,16 +62,17 @@ const Header = () => {
                   sx={{ padding: "6px 6px 0 6px" }}
                   avatar={
                     <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                      {userData?.firstName?.charAt?.(0)}
+                      {userData?.firstName?.charAt?.(0).toUpperCase()}
                     </Avatar>
                   }
-                  title={`${userData?.firstName} ${userData?.lastName}`}
+                  title={`${userData?.firstName.toUpperCase()} ${userData?.lastName.toUpperCase()}`}
                 />
               </Card>
               <Button
                 onClick={handleSignout}
                 variant="contained"
                 sx={{ marginLeft: 2 }}
+                size={"small"}
               >
                 Sign out
               </Button>

@@ -54,7 +54,7 @@ const MUCard = ({ item, allView }) => {
       >
         <CardHeader
           title={item?.eventName}
-          subheader={item?.date || "22/05/1996"}
+          subheader={item?.eventDate || "22/05/1996"}
           action={
             userData.email === item.authorEmail && (
               <Box

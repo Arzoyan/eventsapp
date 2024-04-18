@@ -10,7 +10,8 @@ import PublicRoute from "../components/publicRoute";
 import SignIn from "./auth/signIn";
 import SignUp from "./auth/signUp";
 
-export default createBrowserRouter([
+export default createBrowserRouter(
+  [
     {
       path: "/",
       element: <App />,
@@ -22,24 +23,20 @@ export default createBrowserRouter([
             {
               path: "/",
               element: <Home />,
-              // loader: contactLoader,
             },
             {
               path: "/event/:eventId",
               element: <EventView />,
-              // loader: contactLoader,
             },
             {
               path: "/event/edit/:eventId",
               element: <EditEvent />,
-              // loader: contactLoader,
             },
             {
               path: "/create-event",
               element: <CreateEvent />,
-              // loader: contactLoader,
             },
-          ]
+          ],
         },
         {
           element: <PublicRoute />,
@@ -47,16 +44,17 @@ export default createBrowserRouter([
             {
               path: "/login",
               element: <SignIn />,
-              // loader: contactLoader,
             },
             {
               path: "/signup",
               element: <SignUp />,
-              // loader: contactLoader,
             },
-          ]
-        }],
+          ],
+        },
+      ],
     },
-  ], {
+  ],
+  {
     basename: "/eventsapp/",
-  });
+  }
+);
