@@ -57,4 +57,6 @@ export default createBrowserRouter([
           ]
         }],
     },
-  ]);
+  ], {
+    basename: "/eventsapp/",
+  });
