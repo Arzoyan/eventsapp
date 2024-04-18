@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Arzoyan.github.io/eventsapp",
+  "homepage": "https://Arzoyan.github.io/aws-event-management-platform",
   "scripts": {
     "predeploy": "vite build",
     "deploy": "gh-pages -d dist",
