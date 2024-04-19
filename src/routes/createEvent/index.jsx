@@ -53,6 +53,9 @@ const CreateEvent = () => {
         eventTitle={data.eventName}
         handleSubmit={handleSubmit}
         changeData={changeData}
+        isDisabled={
+          !data.eventDate || !data.eventDescription || !data.eventName
+        }
       />
     </div>
   );

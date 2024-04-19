@@ -3,15 +3,11 @@ import { useGetData } from "../../hooks/useGetData";
 import MUCard from "../../components/card";
 import { Box, Button } from "@mui/material";
 import { getAllEvents } from "../../GraphQL/events";
-import MUModal from "../../components/modal";
-import { useSelector } from "react-redux";
-import { getModal } from "../../store/modal/selectors";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "../../components/loading";
 
 const Home = () => {
   const { fetchData, data: events, loading } = useGetData(getAllEvents);
-  const modalData = useSelector(getModal);
   useEffect(() => {
     fetchData();
   }, []);
@@ -31,6 +27,7 @@ const Home = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            marginTop: 2,
           }}
         >
           {events?.map((item) => {
@@ -42,7 +39,6 @@ const Home = () => {
           })}
         </Box>
       </Box>
-      <MUModal {...modalData} />
     </>
   );
 };

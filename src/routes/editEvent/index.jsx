@@ -68,7 +68,7 @@ const EditEvent = () => {
     <div style={{ marginTop: 24 }}>
       {<Notification alert={notificationData} />}
       <NewEventItem
-        eventDate={event?.eventDate || data.eventDate || "22/05/1996"}
+        eventDate={event?.eventDate || data.eventDate || "11/02/1996"}
         eventDescription={event?.eventDescription || data.eventDescription}
         eventTitle={event?.eventName || data.eventName}
         handleSubmit={handleSubmit}

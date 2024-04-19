@@ -7,6 +7,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+
 import "./stiles.css";
 
 const NewEventItem = ({
@@ -28,13 +29,14 @@ const NewEventItem = ({
         margin: "0 auto",
       }}
     >
-      <CardContent>
+      <CardContent className="card-content-container">
         <Box
           component="form"
           onSubmit={handleSubmit}
           noValidate
           sx={{
             mt: 1,
+            padding: 1,
           }}
         >
           <Box>
@@ -60,7 +62,6 @@ const NewEventItem = ({
               className="text-area"
               name="description"
               rows="6"
-              cols="61"
               value={eventDescription}
               onChange={(e) => {
                 changeData(e.target.value, "eventDescription");

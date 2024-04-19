@@ -1,12 +1,12 @@
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import Avatar from "@mui/material/Avatar";
 import { red } from "@mui/material/colors";
-import { Box, Button, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Box, Button } from "@mui/material";
 import { getActiveUser, getUserStatus } from "../../store/user/selectors";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
 import { poolData } from "../../utils/constants";
 import { userSlice } from "../../store/user/slice";
 import { jwtDecode } from "jwt-decode";

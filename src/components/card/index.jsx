@@ -1,17 +1,17 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { deleteEvent } from "../../GraphQL/events";
 import Card from "@mui/material/Card";
+import Notification from "../notificationAlert";
+import { Box, CardHeader } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
-import { Box, CardHeader } from "@mui/material";
 import Icon from "../Icons";
-
-import "./styles.css";
-import { useNavigate } from "react-router-dom";
-import { deleteEvent } from "../../GraphQL/events";
 import { useSelector } from "react-redux";
 import { getActiveUser } from "../../store/user/selectors";
-import Notification from "../notificationAlert";
-import { useState } from "react";
+
+import "./styles.css";
 
 const MUCard = ({ item, allView }) => {
   const navigate = useNavigate();
@@ -54,7 +54,7 @@ const MUCard = ({ item, allView }) => {
       >
         <CardHeader
           title={item?.eventName}
-          subheader={item?.eventDate || "22/05/1996"}
+          subheader={item?.eventDate || "02/11/1996"}
           action={
             userData.email === item.authorEmail && (
               <Box
@@ -94,9 +94,7 @@ const MUCard = ({ item, allView }) => {
                 : {}
             }
           >
-            {item?.eventDescription ||
-              ` Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica`}
+            {item?.eventDescription || ` default event description`}
           </Typography>
 
           <Typography
@@ -116,7 +114,6 @@ const MUCard = ({ item, allView }) => {
         {!allView && (
           <Typography
             sx={{
-              // borderBottom: "1px solid #ccc",
               cursor: "pointer",
               marginLeft: 2,
               marginBottom: 1,

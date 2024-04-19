@@ -1,8 +1,18 @@
+.card-content-container {
+  min-width: 320px;
+  width: 100%;
+  min-height: 200px;
+}
+
+.text-area {
+  width: 98%;
+}
 .text-area:focus {
   border: 1px solid #1670be;
   box-shadow: 0 0 3px #1670be;
   outline-offset: 0px;
   outline: none;
+  margin-right: 6px;
 }
 
 .date-input {
