@@ -2,7 +2,7 @@ import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import Avatar from "@mui/material/Avatar";
 import { red } from "@mui/material/colors";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { getActiveUser, getUserStatus } from "../../store/user/selectors";
 import { useDispatch, useSelector } from "react-redux";

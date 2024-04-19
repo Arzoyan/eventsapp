@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { Button } from "@mui/material";
 import NewEventItem from "../newEventItem";
 import { modalSlice } from "../../store/modal/slice";
-import { getAllEvents, updateEvent } from "../../GraphQL/events";
+import { updateEvent } from "../../GraphQL/events";
 import { useDispatch } from "react-redux";
-import { useGetData } from "../../hooks/useGetData";
 
 const style = {
   position: "absolute",
@@ -19,13 +16,20 @@ const style = {
   boxShadow: 24,
 };
 const MUModal = ({ open, item }) => {
-  const dispatch = useDispatch()
-  const [event, setEvent] = useState({ date: item?.date, description: item?.eventDescription, title: item?.eventName })
+  const dispatch = useDispatch();
+  const [event, setEvent] = useState({
+    date: item?.date,
+    description: item?.eventDescription,
+    title: item?.eventName,
+  });
 
-
-  useEffect(()=>{
-    setEvent({ date: item?.date, description: item?.eventDescription, title: item?.eventName })
-  }, [item])
+  useEffect(() => {
+    setEvent({
+      date: item?.date,
+      description: item?.eventDescription,
+      title: item?.eventName,
+    });
+  }, [item]);
 
   const changeData = (value, key) => {
     setEvent((item) => {
@@ -34,14 +38,19 @@ const MUModal = ({ open, item }) => {
   };
 
   const handleClose = () => {
-    dispatch(modalSlice.actions.setModal({open: false}))
-  }
+    dispatch(modalSlice.actions.setModal({ open: false }));
+  };
 
-  const saveAction = async (e) =>{
-    e.preventDefault()
-    await updateEvent({eventName: event.title, eventDescription: event.description, id: item.id, date: new Date(event.date)})
-    handleClose()
-  }
+  const saveAction = async (e) => {
+    e.preventDefault();
+    await updateEvent({
+      eventName: event.title,
+      eventDescription: event.description,
+      id: item.id,
+      date: new Date(event.date),
+    });
+    handleClose();
+  };
 
   return (
     <Modal
@@ -59,8 +68,6 @@ const MUModal = ({ open, item }) => {
           changeData={changeData}
           handleSubmit={saveAction}
         />
-      {/* <Button variant="contained" onClick={handleClose} >Cancel</Button>
-      <Button variant="contained" onClick={saveAction}>Save</Button> */}
       </Box>
     </Modal>
   );
