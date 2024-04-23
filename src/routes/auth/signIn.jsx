@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -9,20 +8,28 @@ import Container from "@mui/material/Container";
 import { TH_signin } from "../../store/user/thunk";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserLoading } from "../../store/user/selectors";
+import { useNavigate } from "react-router-dom";
 
+import "./styles.css";
 
 export default function SignIn() {
-  const dispatch = useDispatch()
-  const loading = useSelector(getUserLoading)
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const loading = useSelector(getUserLoading);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    dispatch(TH_signin({
-      username: data.get("email"),
-      password: data.get("password"),
-    }));
+    dispatch(
+      TH_signin({
+        username: data.get("email"),
+        password: data.get("password"),
+      })
+    );
   };
-
+  const handelNavigate = () => {
+    navigate("/signup", { replace: true });
+  };
   return (
     <Container component="main" maxWidth="xs">
       <Box
@@ -69,9 +76,13 @@ export default function SignIn() {
           </Button>
           <Grid container>
             <Grid item>
-              <Link href="/signup" variant="body2">
+              <Typography
+                onClick={handelNavigate}
+                variant="body2"
+                className="sign-up"
+              >
                 Don't have an account? Sign Up
-              </Link>
+              </Typography>
             </Grid>
           </Grid>
         </Box>
